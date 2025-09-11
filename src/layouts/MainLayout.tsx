@@ -21,7 +21,7 @@ export default function MainLayout() {
                     }
                 `}
             >
-                <SideBar />
+                <SideBar setIsMenuOpen={setIsMenuOpen} />
             </aside>
 
             <main 

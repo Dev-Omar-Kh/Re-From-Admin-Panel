@@ -19,7 +19,11 @@ const navLinks = [
 
 ];
 
-export default function SideBar() {
+export default function SideBar({setIsMenuOpen}: {setIsMenuOpen: (isMenuOpen: boolean) => void}) {
+
+    const handleCloseMenu = () => {
+        setIsMenuOpen(false);
+    }
 
     return <React.Fragment>
 
@@ -31,7 +35,7 @@ export default function SideBar() {
                 </Link>
             </div>
 
-            <nav className='w-full nav-h p-5'>
+            <nav className='w-full nav-h p-5' onClick={handleCloseMenu}>
 
                 <ul className='w-full h-full overflow-y-auto scrollbar-hide space-y-5'>
 
