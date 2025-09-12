@@ -6,7 +6,7 @@ export default function Home() {
 
     return <React.Fragment>
 
-        <section className='w-full space-y-7.5'>
+        <section className='w-full space-y-10'>
 
             <Statistics />
 
