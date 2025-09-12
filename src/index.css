@@ -19,6 +19,24 @@ body {
     background-color: var(--white-color);
 }
 
+::-webkit-scrollbar {
+    width: 8px;
+    background-color: var(--primary-color);
+}
+
+::-webkit-scrollbar-thumb {
+    border-radius: 25px;
+    background: linear-gradient(to top, var(--blue-color), var(--green-color));
+    -webkit-border-radius: 25px;
+    -moz-border-radius: 25px;
+    -ms-border-radius: 25px;
+    -o-border-radius: 25px;
+}
+
+.scrollbar-hide {
+    scrollbar-width: none;
+}
+
 .layout-main-w {
     width: calc(100dvw - 18rem);
 }
