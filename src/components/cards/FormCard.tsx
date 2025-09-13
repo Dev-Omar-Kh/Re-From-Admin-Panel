@@ -45,7 +45,7 @@ export default function FormCard({ data }: FormCardProps) {
 
     return <React.Fragment>
 
-        <div className='p-5 rounded-xl bg-[var(--white-color)] space-y-2.5 shadow-md'>
+        <div className='p-5 rounded-xl bg-[var(--white-color)] space-y-5 shadow-md'>
 
             <div className='flex flex-wrap items-center justify-between gap-2.5'>
 
@@ -55,23 +55,27 @@ export default function FormCard({ data }: FormCardProps) {
 
             </div>
 
-            <div className='flex gap-1.5'>
-                <span className='w-1.5 rounded-4xl' style={{ backgroundColor: data.primaryColor }}></span>
-                <h3 className='text-lg font-semibold text-[var(--secondary-color)]'>{data.title}</h3>
+            <div className='w-full space-y-2.5'>
+
+                <div className='flex gap-2'>
+                    <span className='w-1.5 rounded-4xl' style={{ backgroundColor: data.primaryColor }}></span>
+                    <h3 className='text-lg font-semibold text-[var(--secondary-color)]'>{data.title}</h3>
+                </div>
+
+                <div className='flex flex-wrap items-center gap-x-2.5 gap-y-1.5'>
+                    <IconLabel icon={LuCalendarCheck2} label={`${data.createdAt.split('T')[0]} | ${data.createdAt.split('T')[1].slice(0, 5)}`} />
+                    <IconLabel icon={LuCalendarX2} label={`${data.EndAt.split('T')[0]} | ${data.EndAt.split('T')[1].slice(0, 5)}`} />
+                </div>
+
+                <div className='flex flex-wrap items-center gap-x-2.5 gap-y-1.5'>
+                    <IconLabel icon={LuUser} label={data.users.toString()} />
+                    <span className='w-[1.5px] h-4 rounded-4xl bg-[var(--secondary-color)] opacity-70'></span>
+                    <IconLabel icon={IoMdCheckmarkCircleOutline} label={data.responses.toString()} />
+                </div>
+
             </div>
 
-            <div className='flex flex-wrap items-center gap-x-2.5 gap-y-1.5'>
-                <IconLabel icon={LuCalendarCheck2} label={`${data.createdAt.split('T')[0]} | ${data.createdAt.split('T')[1].slice(0, 5)}`} />
-                <IconLabel icon={LuCalendarX2} label={`${data.EndAt.split('T')[0]} | ${data.EndAt.split('T')[1].slice(0, 5)}`} />
-            </div>
-
-            <div className='flex flex-wrap items-center gap-x-2.5 gap-y-1.5'>
-                <IconLabel icon={LuUser} label={data.users.toString()} />
-                <span className='w-[1.5px] h-4 rounded-4xl bg-[var(--secondary-color)] opacity-70'></span>
-                <IconLabel icon={IoMdCheckmarkCircleOutline} label={data.responses.toString()} />
-            </div>
-
-            <div className='border-t border-[var(--gray-color)] pt-2.5 flex items-center justify-end gap-2.5'>
+            <div className='border-t border-[var(--gray-color)] pt-5 flex items-center justify-end gap-2.5'>
 
                 <Link to={`${ROUTES.RESPONSES}/${data.id}`}>
                     <MainBtn icon={LuFileText} isPrimary={false} />

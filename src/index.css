@@ -10,6 +10,9 @@
     --green-color: #39C6B5;
     --white-color: #FFFFFF;
     --gray-color: #E5E8EC;
+    --red-color: #FF453A;
+
+    --opacity-dark-color: rgba(25, 56, 69, 0.85);
 
 }
 
@@ -26,11 +29,11 @@ body {
 
 ::-webkit-scrollbar-thumb {
     border-radius: 25px;
-    background: linear-gradient(to top, var(--blue-color), var(--green-color));
     -webkit-border-radius: 25px;
     -moz-border-radius: 25px;
     -ms-border-radius: 25px;
     -o-border-radius: 25px;
+    background: linear-gradient(to top, var(--blue-color), var(--green-color));
 }
 
 .scrollbar-hide {
