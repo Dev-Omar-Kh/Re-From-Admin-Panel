@@ -27,7 +27,7 @@ export default function MainLayout() {
             <main 
                 className='
                     layout-main-w h-full px-5 py-8 bg-[var(--primary-color)] overflow-y-auto 
-                    max-[1110px]:!w-full space-y-5 max-[1110px]:px-0 max-[1110px]:pt-20
+                    max-[1110px]:!w-full space-y-5 max-[1110px]:px-0 max-[1110px]:pt-20 max-[1110px]:pb-5
                 '
             >
 

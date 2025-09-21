@@ -3,7 +3,7 @@ import {  Link, NavLink } from 'react-router-dom';
 import { GrHomeRounded } from 'react-icons/gr';
 import { ROUTES } from '../../constants/Routes';
 import { VscTools } from 'react-icons/vsc';
-import { LuLayoutGrid, LuSettings } from 'react-icons/lu';
+import { LuLayoutGrid, LuPaintbrush, LuSettings } from 'react-icons/lu';
 
 // ====== images ====== //
 import logo from '../../assets/images/reform-logo.png';
@@ -14,6 +14,7 @@ const navLinks = [
 
     {label: 'Home', icon: GrHomeRounded, to: ROUTES.HOME},
     {label: 'Forms', icon: LuLayoutGrid, to: ROUTES.FORMS},
+    {label: 'Themes', icon: LuPaintbrush, to: ROUTES.THEMES},
     {label: 'Forms Builder', icon: VscTools, to: ROUTES.FORMS_BUILDER},
     {label: 'Settings', icon: LuSettings, to: ROUTES.SETTINGS},
 

@@ -3,11 +3,13 @@ import StatusCard from './StatusCard';
 
 // ====== images ====== //
 // import formImage from '../../assets/images/reform.jpeg';
-import { LuCalendarCheck2, LuCalendarX2, LuEye, LuFileText, LuPencil, LuUser } from 'react-icons/lu';
+import { LuCalendarCheck2, LuCalendarX2, LuEye, LuFileText, LuPencil, LuTrash, LuUser } from 'react-icons/lu';
 import { IoMdCheckmarkCircleOutline } from 'react-icons/io';
 import { ROUTES } from '../../constants/Routes';
 import { Link } from 'react-router-dom';
 import MainBtn from '../buttons/MainBtn';
+import DateTd from '../table/columns-types/DateTd';
+import TextTd from '../table/columns-types/TextTd';
 
 type FormCardProps = {
     data: {
@@ -27,7 +29,7 @@ type FormCardProps = {
 
 type IconLabelProps = {
     icon: React.ElementType;
-    label: string;
+    label: string | React.ReactNode;
 }
 
 const IconLabel = ({ icon : Icon, label }: IconLabelProps) => {
@@ -40,6 +42,15 @@ const IconLabel = ({ icon : Icon, label }: IconLabelProps) => {
 
     </React.Fragment>
 }
+
+// ====== data ====== //
+
+const cardActions = (data: FormCardProps['data']) => [
+    { label: 'Preview', icon: LuEye, to: ROUTES.FORM_PREVIEW, isPrimary: true },
+    { label: 'Responses', icon: LuFileText, to: `${ROUTES.RESPONSES}/${data.id}`},
+    { label: 'Edit', icon: LuPencil, to: `${ROUTES.FORMS_BUILDER}/${data.id}`},
+    { label: 'Delete', icon: LuTrash, onClick: () => {console.log('delete')}, isDanger: true },
+];
 
 export default function FormCard({ data }: FormCardProps) {
 
@@ -63,31 +74,46 @@ export default function FormCard({ data }: FormCardProps) {
                 </div>
 
                 <div className='flex flex-wrap items-center gap-x-2.5 gap-y-1.5'>
-                    <IconLabel icon={LuCalendarCheck2} label={`${data.createdAt.split('T')[0]} | ${data.createdAt.split('T')[1].slice(0, 5)}`} />
-                    <IconLabel icon={LuCalendarX2} label={`${data.EndAt.split('T')[0]} | ${data.EndAt.split('T')[1].slice(0, 5)}`} />
+                    <IconLabel 
+                        icon={LuCalendarCheck2} 
+                        label={<DateTd isSmall={true} date={data.createdAt} time={data.createdAt.split('T')[1].slice(0, 5)} />} 
+                    />
+                    <IconLabel 
+                        icon={LuCalendarX2} 
+                        label={<DateTd isSmall={true} date={data.EndAt} time={data.EndAt.split('T')[1].slice(0, 5)} />} 
+                    />
                 </div>
 
                 <div className='flex flex-wrap items-center gap-x-2.5 gap-y-1.5'>
-                    <IconLabel icon={LuUser} label={data.users.toString()} />
+                    <IconLabel icon={LuUser} label={<TextTd text={data.users.toString()} isSmall={true} />} />
                     <span className='w-[1.5px] h-4 rounded-4xl bg-[var(--secondary-color)] opacity-70'></span>
-                    <IconLabel icon={IoMdCheckmarkCircleOutline} label={data.responses.toString()} />
+                    <IconLabel icon={IoMdCheckmarkCircleOutline} label={<TextTd text={data.responses.toString()} isSmall={true} />} />
                 </div>
 
             </div>
 
             <div className='border-t border-[var(--gray-color)] pt-5 flex items-center justify-end gap-2.5'>
 
-                <Link to={`${ROUTES.RESPONSES}/${data.id}`}>
-                    <MainBtn icon={LuFileText} isPrimary={false} />
-                </Link>
+                {cardActions(data).map((action, idx) => (
 
-                <Link to={`${ROUTES.FORMS_BUILDER}/${data.id}`}>
-                    <MainBtn icon={LuPencil} isPrimary={false} />
-                </Link>
-
-                <Link to={ROUTES.FORM_PREVIEW}>
-                    <MainBtn icon={LuEye} />
-                </Link>
+                    action.to ? (
+                        <Link key={idx} to={action.to}>
+                            <MainBtn 
+                                icon={action.icon} 
+                                isPrimary={action.isPrimary ?? false}
+                                isDanger={action.isDanger ?? false}
+                            />
+                        </Link>
+                    ) : (
+                        <button key={idx} onClick={action.onClick}>
+                            <MainBtn 
+                                icon={action.icon} 
+                                isPrimary={action.isPrimary ?? false}
+                                isDanger={action.isDanger ?? false}
+                            />
+                        </button>
+                    )
+                ))}
 
             </div>
 

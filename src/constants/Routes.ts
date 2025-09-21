@@ -7,6 +7,7 @@ export const ROUTES = {
     ANALYTICS: '/analytics',
     SETTINGS: '/settings',
     REGISTER: '/register',
+    THEMES: '/themes',
     LOGIN: '/login',
     FORMS: '/forms',
     NOT_FOUND: '*',

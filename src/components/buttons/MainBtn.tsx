@@ -9,18 +9,23 @@ type MainBtnProps = {
     isDanger?: boolean;
     start?: boolean;
     end?: boolean;
+    iconPosition?: 'left' | 'right';
+    disabled?: boolean;
 }
 
-export default function MainBtn(
-    { title, icon: Icon, isPrimary = true, isSecondary = false, isDanger = false, isSmall = false, start = false, end = false }: MainBtnProps
-) {
+export default function MainBtn({ 
+    title, icon: Icon, isPrimary = true, 
+    isSecondary = false, isDanger = false, 
+    isSmall = false, start = false, end = false, 
+    iconPosition = 'left', disabled = false
+}: MainBtnProps) {
 
     return <React.Fragment>
 
         <div 
             className={`
                 rounded-lg flex items-center justify-center gap-2.5
-                text-base font-medium cursor-pointer
+                text-base font-medium ${disabled ? 'opacity-50 cursor-not-allowed' : 'cursor-pointer'}
                 ${title ? 'px-5 py-2.5' : 'p-2.5'}
                 ${start ? 'justify-start' : (end ? 'justify-end' : 'justify-center')}
                 ${isPrimary 
@@ -34,8 +39,9 @@ export default function MainBtn(
             `}
         >
 
-            {Icon && <Icon size={title ? 24 : (isSmall ? 16 : 18)} />}
+            {Icon && iconPosition === 'left' && <Icon size={title ? ( isSmall ? 16 : 24) : (isSmall ? 16 : 18)} />}
             {title && <span>{title}</span>}
+            {Icon && iconPosition === 'right' && <Icon size={title ? ( isSmall ? 16 : 24) : (isSmall ? 16 : 18)} />}
 
         </div>
 

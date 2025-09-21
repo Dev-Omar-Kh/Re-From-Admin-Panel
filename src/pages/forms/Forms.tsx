@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import MainTitle from '../../components/titles/MainTitle';
 import { Link } from 'react-router-dom';
 import { ROUTES } from '../../constants/Routes';
@@ -7,6 +7,8 @@ import { IoIosAddCircleOutline } from 'react-icons/io';
 import Table, { type Column } from '../../components/table/Table';
 import ActionsTd from '../../components/table/columns-types/ActionsTd';
 import TextTd from '../../components/table/columns-types/TextTd';
+import TriggerBtn, { type Trigger } from '../../components/buttons/TriggerBtn';
+import FormCard from '../../components/cards/FormCard';
 
 // ====== data ====== //
 
@@ -186,7 +188,18 @@ const formColumns: Column<FormData>[] = [
     }
 ];
 
+const triggers: Trigger[] = [
+    { label: 'Table', value: 1 },
+    { label: 'Cards', value: 2 },
+];
+
 export default function Forms() {
+
+    const [currentView, setCurrentView] = useState<number>(1);
+
+    const handleViewChange = (value: number) => {
+        setCurrentView(value);
+    };
 
     return <React.Fragment>
 
@@ -202,7 +215,23 @@ export default function Forms() {
 
             </div>
 
-            <Table data={AllFormsData} columns={formColumns} />
+            <div className='w-full space-y-5'>
+
+                <TriggerBtn 
+                    triggers={triggers} 
+                    onTriggerChange={handleViewChange}
+                    defaultValue={1}
+                />
+
+                {currentView === 1 && <Table data={AllFormsData} columns={formColumns} />}
+
+                {currentView === 2 && <div className='w-full grid grid-cols-3 gap-5 max-[820px]:grid-cols-2 max-[690px]:grid-cols-1'>
+                    {AllFormsData.map((item, idx) => (
+                        <FormCard key={idx} data={item} />
+                    ))}
+                </div>}
+
+            </div>
 
         </section>
 

@@ -4,9 +4,10 @@ import TextTd from './TextTd';
 type DateTdProps = {
     date?: string
     time?: string
+    isSmall?: boolean
 }
 
-export default function DateTd({ date, time }: DateTdProps) {
+export default function DateTd({ date, time, isSmall = false }: DateTdProps) {
 
     const formattedDate = React.useMemo(() => {
 
@@ -80,8 +81,8 @@ export default function DateTd({ date, time }: DateTdProps) {
     return <React.Fragment>
 
         <div className="w-full flex items-center justify-center gap-1.5">
-            {formattedDate && <TextTd text={formattedDate} />}
-            {formattedTime && <TextTd text={`( ${formattedTime} )`} />}
+            {formattedDate && <TextTd text={formattedDate} isSmall={isSmall} />}
+            {formattedTime && <TextTd text={`( ${formattedTime} )`} isSmall={isSmall} />}
         </div>
 
     </React.Fragment>
