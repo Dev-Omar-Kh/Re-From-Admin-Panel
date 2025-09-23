@@ -1,12 +1,8 @@
 import React from "react";
 import TextTd from "./TextTd";
+import type { NumbersTdProps } from "../../../types/propsTypes";
 
-type Props = {
-    number: number;
-    format?: "default" | "formatted" | "compact";
-};
-
-export default function NumbersTd({ number, format = "default" }: Props) {
+export default function NumbersTd({ number, format = "default" }: NumbersTdProps) {
 
     const formatNumber = (num: number): string => {
 

@@ -4,25 +4,14 @@ import { Link } from 'react-router-dom';
 import { ROUTES } from '../../constants/Routes';
 import MainBtn from '../../components/buttons/MainBtn';
 import { IoIosAddCircleOutline } from 'react-icons/io';
-import Table, { type Column } from '../../components/table/Table';
+import Table from '../../components/table/Table';
 import ActionsTd from '../../components/table/columns-types/ActionsTd';
 import TextTd from '../../components/table/columns-types/TextTd';
-import TriggerBtn, { type Trigger } from '../../components/buttons/TriggerBtn';
+import TriggerBtn from '../../components/buttons/TriggerBtn';
 import FormCard from '../../components/cards/FormCard';
+import type { FormData, Column, Trigger } from '../../types/propsTypes';
 
 // ====== data ====== //
-
-type FormData = {
-    id: number;
-    image: string;
-    status: 'Active' | 'Inactive' | 'Closed';
-    primaryColor: string;
-    title: string;
-    createdAt: string;
-    EndAt: string;
-    users: number;
-    responses: number;
-};
 
 const AllFormsData: FormData[] = [
 

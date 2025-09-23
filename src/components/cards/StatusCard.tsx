@@ -1,9 +1,5 @@
 import React from 'react';
-
-type StatusCardProps = {
-    className: string;
-    title: string;
-}
+import type { StatusCardProps } from '../../types/propsTypes';
 
 export default function StatusCard({ className, title }: StatusCardProps) {
 

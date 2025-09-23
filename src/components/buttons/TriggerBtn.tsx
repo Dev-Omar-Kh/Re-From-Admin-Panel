@@ -1,23 +1,10 @@
 import React, { useState, useEffect, useRef, useCallback } from 'react';
 import { motion } from 'framer-motion';
 import Animations from '../../animations/Animations';
-
-// ====== types ====== //
-
-export type Trigger = {
-    label: string;
-    value: number;
-}
-
-type TriggerBtnProps = {
-    triggers: Trigger[];
-    onTriggerChange: (value: number) => void;
-    defaultValue?: number;
-    className?: string;
-}
+import type { TriggerBtnProps } from '../../types/propsTypes';
 
 export default function TriggerBtn({triggers, onTriggerChange, defaultValue = triggers[0]?.value || 1, className = ''}: TriggerBtnProps) {
-    
+
     const [activeValue, setActiveValue] = useState<number>(defaultValue);
     const [backgroundPosition, setBackgroundPosition] = useState({ x: 0, width: 0, height: 0 });
     const buttonsRef = useRef<(HTMLButtonElement | null)[]>([]);

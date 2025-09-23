@@ -3,17 +3,7 @@ import StatusTd from './columns-types/StatusTd';
 import DateTd from './columns-types/DateTd';
 import NumbersTd from './columns-types/NumbersTd';
 import TextTd from './columns-types/TextTd';
-
-export type Column<T> = {
-    header: React.ReactNode;
-    cell: (item: T) => React.ReactNode;
-    type?: 'text' | 'number' | 'date' | 'status';
-};
-
-type TableProps<T> = {
-    data: T[];
-    columns: Column<T>[];
-};
+import type { TableProps, Column } from '../../types/propsTypes';
 
 export default function Table<T extends { id: React.Key }>({ data, columns }: TableProps<T>) {
 

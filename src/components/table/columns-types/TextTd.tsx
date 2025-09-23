@@ -1,10 +1,5 @@
 import React from 'react';
-
-type TextTdProps = {
-    text: string;
-    isSmall?: boolean;
-}
-
+import type { TextTdProps } from '../../../types/propsTypes';
 
 export default function TextTd({ text, isSmall = false }: TextTdProps) {
 

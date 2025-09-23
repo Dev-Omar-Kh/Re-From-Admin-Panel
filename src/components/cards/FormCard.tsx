@@ -10,27 +10,9 @@ import { Link } from 'react-router-dom';
 import MainBtn from '../buttons/MainBtn';
 import DateTd from '../table/columns-types/DateTd';
 import TextTd from '../table/columns-types/TextTd';
-
-type FormCardProps = {
-    data: {
-        id: number;
-        image: string;
-        status: string;
-        primaryColor: string;
-        title: string;
-        createdAt: string;
-        EndAt: string;
-        users: number;
-        responses: number;
-    }
-}
+import type { FormCardProps, IconLabelProps } from '../../types/propsTypes';
 
 // ====== custom components ====== //
-
-type IconLabelProps = {
-    icon: React.ElementType;
-    label: string | React.ReactNode;
-}
 
 const IconLabel = ({ icon : Icon, label }: IconLabelProps) => {
     return <React.Fragment>

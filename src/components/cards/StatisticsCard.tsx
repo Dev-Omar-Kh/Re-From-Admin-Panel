@@ -1,9 +1,5 @@
 import React from 'react';
-
-type StatisticsCardProps = {
-    title: string;
-    value: number;
-}
+import type { StatisticsCardProps } from '../../types/propsTypes';
 
 export default function StatisticsCard({ title, value }: StatisticsCardProps) {
 

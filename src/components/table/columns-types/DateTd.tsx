@@ -1,11 +1,6 @@
 import React from 'react';
 import TextTd from './TextTd';
-
-type DateTdProps = {
-    date?: string
-    time?: string
-    isSmall?: boolean
-}
+import type { DateTdProps } from '../../../types/propsTypes';
 
 export default function DateTd({ date, time, isSmall = false }: DateTdProps) {
 

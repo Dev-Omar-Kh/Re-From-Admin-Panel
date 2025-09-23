@@ -1,17 +1,6 @@
 import React from 'react';
+import { type MainBtnProps } from '../../types/propsTypes';
 
-type MainBtnProps = {
-    title?: string;
-    isSmall?: boolean;
-    icon?: React.ElementType;
-    isPrimary?: boolean;
-    isSecondary?: boolean;
-    isDanger?: boolean;
-    start?: boolean;
-    end?: boolean;
-    iconPosition?: 'left' | 'right';
-    disabled?: boolean;
-}
 
 export default function MainBtn({ 
     title, icon: Icon, isPrimary = true, 
@@ -25,7 +14,7 @@ export default function MainBtn({
         <div 
             className={`
                 rounded-lg flex items-center justify-center gap-2.5
-                text-base font-medium ${disabled ? 'opacity-50 cursor-not-allowed' : 'cursor-pointer'}
+                text-base font-medium ${disabled ? 'cursor-not-allowed' : 'cursor-pointer'}
                 ${title ? 'px-5 py-2.5' : 'p-2.5'}
                 ${start ? 'justify-start' : (end ? 'justify-end' : 'justify-center')}
                 ${isPrimary 

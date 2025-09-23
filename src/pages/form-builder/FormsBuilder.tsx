@@ -3,11 +3,12 @@ import MainTitle from '../../components/titles/MainTitle';
 import Stepper from '../../components/stepper/Stepper';
 import MainBtn from '../../components/buttons/MainBtn';
 import { IoIosArrowBack, IoIosArrowForward } from 'react-icons/io';
+import FormStyle from './steps/FormStyle';
 
 // ====== data ====== //
 
 const stepsData = [
-    { id: 1, name: "Theme Selection", component: <h1>Theme Selection</h1> },
+    { id: 1, name: "Theme Selection", component: <FormStyle /> },
     { id: 2, name: "Page Information", component: <h1>Page Information</h1> },
     { id: 3, name: "Form Fields", component: <h1>Form Fields</h1> },
     { id: 4, name: "Form Settings", component: <h1>Form Settings</h1> },
@@ -21,7 +22,7 @@ export default function FormsBuilder() {
 
     return <React.Fragment>
 
-        <section className='w-full space-y-10'>
+        <form className='w-full space-y-10'>
 
             <MainTitle title='Forms Builder' />
 
@@ -45,7 +46,7 @@ export default function FormsBuilder() {
 
             </div>
 
-        </section>
+        </form>
 
     </React.Fragment>
 

@@ -1,11 +1,7 @@
 import React, { useCallback, useEffect, useRef } from 'react'
 import { motion } from 'framer-motion';
 import Animations from '../../animations/Animations';
-
-type PopUpProps = {
-    children: React.ReactNode;
-    onClose: () => void;
-}
+import type { PopUpProps } from '../../types/propsTypes';
 
 export default function PopUp({children, onClose}: PopUpProps) {
 

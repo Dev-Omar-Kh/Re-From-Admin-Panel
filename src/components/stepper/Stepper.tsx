@@ -2,11 +2,7 @@ import React from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { FaCheck } from 'react-icons/fa';
 import Animations from '../../animations/Animations';
-
-type StepperProps = {
-    steps: string[];
-    currentStep: number;
-}
+import type { StepperProps } from '../../types/propsTypes';
 
 export default function Stepper({ steps, currentStep }: StepperProps) {
 
@@ -31,7 +27,7 @@ export default function Stepper({ steps, currentStep }: StepperProps) {
                 />
             </div>
 
-            <div className="flex justify-between">
+            <div className="flex flex-wrap justify-between">
                 {steps.map((step, index) => {
                     const stepNumber = index + 1;
                     const isCompleted = stepNumber < currentStep;
