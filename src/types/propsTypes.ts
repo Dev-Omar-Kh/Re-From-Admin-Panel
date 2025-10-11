@@ -246,3 +246,27 @@ export type TextareaInputProps = {
     cols?: number;
     resize?: 'none' | 'both' | 'horizontal' | 'vertical';
 };
+
+// ====== ListInput ====== //
+
+export type ListInputOption = {
+    value: string;
+    label: string;
+};
+
+export type ListInputProps = {
+    id: string;
+    label: string;
+    placeholder?: string;
+    options: ListInputOption[];
+    value?: string;
+    onChange?: (e: React.ChangeEvent<HTMLInputElement>) => void;
+    onBlur?: (e: React.FocusEvent<HTMLInputElement>) => void;
+    description?: string;
+    error?: string;
+    className?: string;
+    disabled?: boolean;
+    multiple?: boolean;
+    searchable?: boolean;
+    maxHeight?: string;
+};

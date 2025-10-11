@@ -22,7 +22,7 @@ export default function MainBtn({
                     : isSecondary 
                     ? 'border border-[var(--gray-color)] text-[var(--secondary-color)]' 
                     : isDanger 
-                    ? 'border border-[var(--gray-color)] text-[var(--red-color)]' 
+                    ? 'border border-[var(--red-color)]/50 text-[var(--red-color)]' 
                     : 'bg-[var(--gray-color)] text-[var(--secondary-color)]'
                 }
             `}

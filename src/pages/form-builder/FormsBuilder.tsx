@@ -4,20 +4,21 @@ import Stepper from '../../components/stepper/Stepper';
 import MainBtn from '../../components/buttons/MainBtn';
 import { IoIosArrowBack, IoIosArrowForward } from 'react-icons/io';
 import FormStyle from './steps/FormStyle';
+import FormFields from './steps/FormFields';
 
 // ====== data ====== //
 
 const stepsData = [
-    { id: 1, name: "Theme Selection", component: <FormStyle /> },
-    { id: 2, name: "Page Information", component: <h1>Page Information</h1> },
-    { id: 3, name: "Form Fields", component: <h1>Form Fields</h1> },
+    { id: 1, name: "Form Style", component: <FormStyle /> },
+    // { id: 2, name: "Page Information", component: <h1>Page Information</h1> },
+    { id: 3, name: "Form Fields", component: <FormFields /> },
     { id: 4, name: "Form Settings", component: <h1>Form Settings</h1> },
     { id: 5, name: "Summary & Share", component: <h1>Summary & Share</h1> },
 ];
 
 export default function FormsBuilder() {
 
-    const [currentStep, setCurrentStep] = useState(1);
+    const [currentStep, setCurrentStep] = useState(2);
     const steps = stepsData.map(step => step.name);
 
     return <React.Fragment>
